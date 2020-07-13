@@ -4,7 +4,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	dlt645 "go-dlt645"
+	"github.com/themeyic/go-dlt645"
 	"math/rand"
 	"time"
 
