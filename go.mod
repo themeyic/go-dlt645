@@ -1,4 +1,4 @@
-module go-dlt645
+module github.com/themeyic/go-dlt645
 
 go 1.12
 
