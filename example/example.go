@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	dlt "go-dlt645"
-	"go-dlt645/dltcon"
+	dlt "github.com/themeyic/go-dlt645"
+	"github.com/themeyic/go-dlt645/dltcon"
 	"time"
 )
 
