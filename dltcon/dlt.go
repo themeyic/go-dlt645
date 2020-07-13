@@ -8,7 +8,7 @@ import (
 	"math/rand"
 	"time"
 
-	"github.com/thinkgos/timing"
+	"github.com/themeyic/timing"
 )
 
 const (
