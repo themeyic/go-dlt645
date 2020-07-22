@@ -46,7 +46,6 @@ func (dltconfig *Dlt645ConfigClient) SendMessageToSerial(dlt Client) (response s
 	return value,err
 }
 
-
 //计算出校验码
 func CheckCode(data string) string{
 	midData = data
