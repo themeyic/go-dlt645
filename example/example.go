@@ -26,7 +26,7 @@ func main() {
 		fmt.Println("start err,", err)
 		return
 	}
-	test := dlt.Dlt645ConfigClient{"005223440001", "02010300"}
+	test := &dlt.Dlt645ConfigClient{"005223440001", "02010300"}
 	for {
 		value, err := test.SendMessageToSerial(client)
 		if err != nil {
