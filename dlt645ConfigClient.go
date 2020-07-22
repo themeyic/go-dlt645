@@ -48,18 +48,15 @@ func (dltconfig *Dlt645ConfigClient) SendMessageToSerial(dlt Client) (response s
 
 //计算出校验码
 func CheckCode(data string) string{
-	midData = data
-	data = strings.ReplaceAll(messageFinshed," ","")
+	midData := data
+	data = strings.ReplaceAll(data," ","")
 	total := 0
 	length := len(data)
 	num := 0
 	for num < length{
 		s := data[num:num+2]
 		//16进制转换成10进制
-		totalMid,err  :=  strconv.ParseUint(s,16,32)
-		if err == nil{
-			dlt.Debug("数据出现异常")
-		}
+		totalMid,_  :=  strconv.ParseUint(s,16,32)
 		total += int(totalMid)
 		num = num + 2
 	}
