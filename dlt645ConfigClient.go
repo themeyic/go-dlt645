@@ -41,10 +41,40 @@ func (dltconfig *Dlt645ConfigClient) SendMessageToSerial(dlt Client) (response s
 	DataMarkerHandleReverseFinished = strings.Replace(DataMarkerHandleReverseFinished,"]","",-1)
 
 
-	messageFinshed :="68 "+meterNumberHandleReverseFinished+" 68"+" 11 "+"04 "+DataMarkerHandleReverseFinished+" 71 16"
-	value,err :=dlt.SendRawFrame(messageFinshed)
+	messageFinshed :="68 "+meterNumberHandleReverseFinished+" 68"+" 11 "+"04 "+DataMarkerHandleReverseFinished
+	value,err :=dlt.SendRawFrame(CheckCode(messageFinshed))
 	return value,err
 }
+
+
+//计算出校验码
+func CheckCode(data string) string{
+	midData = data
+	data = strings.ReplaceAll(messageFinshed," ","")
+	total := 0
+	length := len(data)
+	num := 0
+	for num < length{
+		s := data[num:num+2]
+		//16进制转换成10进制
+		totalMid,err  :=  strconv.ParseUint(s,16,32)
+		if err == nil{
+			dlt.Debug("数据出现异常")
+		}
+		total += int(totalMid)
+		num = num + 2
+	}
+	//将校验码前面的所有数通过16进制加起来转换成10进制，然后除256区余数，然后余数转换成16进制，得到的就是校验码
+	mod := total % 256
+	hex,_ := DecConvertToX(mod,16)
+	len := len(hex)
+	//如果校验位长度不够，就补0，因为校验位必须是要2位
+	if(len < 2){
+		hex = "0" + hex
+	}
+	return midData +" "+ strings.ToUpper(hex)+" 16"
+}
+
 
 func reverseString(s string) string {
 	runes := []rune(s)
