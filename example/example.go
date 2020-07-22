@@ -26,6 +26,8 @@ func main() {
 		fmt.Println("start err,", err)
 		return
 	}
+	//MeterNumber是表号 005223440001
+	//DataMarker是数据标识别 02010300
 	test := &dlt.Dlt645ConfigClient{"005223440001", "02010300"}
 	for {
 		value, err := test.SendMessageToSerial(client)
