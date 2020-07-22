@@ -68,12 +68,9 @@ func decodeRTUFrame(adu []byte) (uint8, []byte, error) {
 
 // Send request to the remote server,it implements on SendRawFrame
 func (sf *Dlt645ClientProvider) Send(slaveID byte, request ProtocolDataUnit) (ProtocolDataUnit, error) {
-		return ProtocolDataUnit{}, nil
+	return ProtocolDataUnit{}, nil
 
 }
-
-
-
 
 // SendPdu send pdu request to the remote server
 func (sf *Dlt645ClientProvider) SendPdu(slaveID byte, pduRequest []byte) ([]byte, error) {
@@ -84,7 +81,7 @@ func (sf *Dlt645ClientProvider) SendPdu(slaveID byte, pduRequest []byte) ([]byte
 // SendRawFrame send Adu frame
 // SendRawFrame发送Adu帧。
 func (dlt *Dlt645ClientProvider) SendRawFrame(request string) (response string, err error) {
-	request = strings.Replace(request," ","",-1)
+	request = strings.Replace(request, " ", "", -1)
 	dlt.mu.Lock()
 	defer dlt.mu.Unlock()
 
@@ -130,35 +127,31 @@ func (dlt *Dlt645ClientProvider) SendRawFrame(request string) (response string, 
 	time.Sleep(dlt.calculateDelay(len(HexStringToBytes(request)) + bytesToRead))
 
 	sum, _ := io.ReadFull(dlt.port, data[:])
-	test1 := fmt.Sprintf("[% x]", data[0:sum])
+	backData := fmt.Sprintf("[% x]", data[0:sum])
 
-	analysis(dlt,test1)
-
-	return
+	return analysis(dlt, backData), nil
 }
 
 //把字符串转换成字节数组
-func HexStringToBytes(data string) []byte{
-	if ""==data {
+func HexStringToBytes(data string) []byte {
+	if "" == data {
 		return nil
 	}
 	data = strings.ToUpper(data)
-	length := len(data)/2
+	length := len(data) / 2
 	dataChars := []byte(data)
-	var byteData []byte = make([]byte,length)
-	for i := 0 ;i <length;i++{
+	var byteData []byte = make([]byte, length)
+	for i := 0; i < length; i++ {
 		pos := i * 2
-		byteData[i] = byte(charToByte(dataChars[pos]) << 4 | charToByte(dataChars[pos + 1]))
+		byteData[i] = byte(charToByte(dataChars[pos])<<4 | charToByte(dataChars[pos+1]))
 	}
 	return byteData
 
 }
 
-func charToByte(c byte) byte{
-    return (byte)(strings.Index("0123456789ABCDEF",string(c)));
+func charToByte(c byte) byte {
+	return (byte)(strings.Index("0123456789ABCDEF", string(c)))
 }
-
-
 
 // calculateDelay roughly calculates time needed for the next frame.
 // See dltcon over Serial Line - Specification and Implementation Guide (page 13).
