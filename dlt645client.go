@@ -80,14 +80,14 @@ func (sf *Dlt645ClientProvider) SendPdu(slaveID byte, pduRequest []byte) ([]byte
 
 // SendRawFrame send Adu frame
 // SendRawFrame发送Adu帧。
-func (dlt *Dlt645ClientProvider) SendRawFrame(request string) (response string, err error) {
+func (dlt *Dlt645ClientProvider) SendRawFrame(request string) (response int16, err error) {
 	request = strings.Replace(request, " ", "", -1)
 	dlt.mu.Lock()
 	defer dlt.mu.Unlock()
 
 	// check  port is connected
 	if !dlt.isConnected() {
-		return "", ErrClosedConnection
+		return 0, ErrClosedConnection
 	}
 
 	// Send the request

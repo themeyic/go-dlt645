@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5b744c40-1781-4f23-8f6b-85191368fbd8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="5b744c40-1781-4f23-8f6b-85191368fbd8" name="Default Changelist" comment="优化了一下返回值">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dlt645client.go" beforeDir="false" afterPath="$PROJECT_DIR$/dlt645client.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/messageAnalysis.go" beforeDir="false" afterPath="$PROJECT_DIR$/messageAnalysis.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +27,8 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="GO_FMT" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -50,6 +52,18 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
@@ -66,6 +80,11 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="使用的例子补充" />
+    <MESSAGE value="优化了一下返回值" />
+    <option name="LAST_COMMIT_MESSAGE" value="优化了一下返回值" />
+  </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
   </component>
@@ -74,9 +93,29 @@
       <screen x="0" y="23" width="1792" height="1054" />
     </state>
     <state x="496" y="215" key="#GOROOT/0.23.1792.1054@0.23.1792.1054" timestamp="1595401474478" />
+    <state x="479" y="152" key="CommitChangelistDialog2" timestamp="1595409475322">
+      <screen x="0" y="23" width="1792" height="1054" />
+    </state>
+    <state x="479" y="152" key="CommitChangelistDialog2/0.23.1792.1054@0.23.1792.1054" timestamp="1595409475322" />
     <state x="378" y="109" key="FileChooserDialogImpl" timestamp="1594605256943">
       <screen x="0" y="0" width="1195" height="707" />
     </state>
     <state x="378" y="109" key="FileChooserDialogImpl/0.0.1195.707@0.0.1195.707" timestamp="1594605256943" />
+    <state x="496" y="290" key="Vcs.Push.Dialog.v2" timestamp="1595409532687">
+      <screen x="0" y="23" width="1792" height="1054" />
+    </state>
+    <state x="496" y="290" key="Vcs.Push.Dialog.v2/0.23.1792.1054@0.23.1792.1054" timestamp="1595409532687" />
+    <state x="679" y="474" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1595401992533">
+      <screen x="0" y="23" width="1792" height="1054" />
+    </state>
+    <state x="679" y="474" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1792.1054@0.23.1792.1054" timestamp="1595401992533" />
+    <state x="555" y="307" width="683" height="486" key="find.popup" timestamp="1595470397268">
+      <screen x="0" y="23" width="1792" height="1054" />
+    </state>
+    <state x="555" y="307" width="683" height="486" key="find.popup/0.23.1792.1054@0.23.1792.1054" timestamp="1595470397268" />
+    <state x="599" y="348" key="git4idea.merge.GitPullDialog" timestamp="1595464951596">
+      <screen x="0" y="23" width="1792" height="1054" />
+    </state>
+    <state x="599" y="348" key="git4idea.merge.GitPullDialog/0.23.1792.1054@0.23.1792.1054" timestamp="1595464951596" />
   </component>
 </project>
