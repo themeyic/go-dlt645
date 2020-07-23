@@ -36,7 +36,6 @@ func main() {
 		} else {
 			fmt.Printf("%#v\n", value)
 		}
-
 		time.Sleep(time.Second * 3)
 	}
 }

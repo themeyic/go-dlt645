@@ -123,8 +123,8 @@ func (dlt *Dlt645ClientProvider) SendRawFrame(request string) (response []byte, 
 
 	var data [rtuAduMaxSize]byte
 
-	bytesToRead := calculateResponseLength(HexStringToBytes(request))
-	time.Sleep(dlt.calculateDelay(len(HexStringToBytes(request)) + bytesToRead))
+	//bytesToRead := calculateResponseLength(HexStringToBytes(request))
+	//time.Sleep(dlt.calculateDelay(len(HexStringToBytes(request)) + bytesToRead))
 
 	sum, _ := io.ReadFull(dlt.port, data[:])
 	backData := fmt.Sprintf("[% x]", data[0:sum])
