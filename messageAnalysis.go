@@ -43,7 +43,7 @@ func DecConvertToX(n, num int) (string, error) {
 	return result, nil
 }
 
-func analysis(dlt *Dlt645ClientProvider, command string) int16 {
+func analysis(dlt *Dlt645ClientProvider, command string) []byte {
 	command = strings.Replace(command, "[", "", -1)
 	command = strings.Replace(command, "]", "", -1)
 	newCommands := strings.Split(command, " ")
@@ -123,66 +123,57 @@ func analysis(dlt *Dlt645ClientProvider, command string) int16 {
 			n2, _ := decimal.NewFromString("0.1")
 			over := n1.Mul(n2)
 			dlt.Debug(markerValue+":%s", over.String()+"v")
-			valueInt16, _ := strconv.ParseInt(data, 10, 64)
-			return int16(valueInt16)
+			return HexStringToBytes(data)
 		} else if dltDataFinished == "02" && dltDataFinished1 == "02" {
 			n1, _ := decimal.NewFromString(data)
 			n2, _ := decimal.NewFromString("0.01")
 			over := n1.Mul(n2)
 			dlt.Debug(markerValue+"%s", over.String()+"A")
-			valueInt16, _ := strconv.ParseInt(data, 10, 64)
-			return int16(valueInt16)
+			return HexStringToBytes(data)
 		} else if (dltDataFinished == "02" && dltDataFinished1 == "03") || (dltDataFinished == "02" && dltDataFinished1 == "04") || (dltDataFinished == "02" && dltDataFinished1 == "05") {
 			n1, _ := decimal.NewFromString(data)
 			n2, _ := decimal.NewFromString("0.0001")
 			over := n1.Mul(n2)
 			dlt.Debug(markerValue+"%s", over)
-			valueInt16, _ := strconv.ParseInt(data, 10, 64)
-			return int16(valueInt16)
+			return HexStringToBytes(data)
 		} else if dltDataFinished == "02" && dltDataFinished1 == "06" {
 			n1, _ := decimal.NewFromString(data)
 			n2, _ := decimal.NewFromString("0.001")
 			over := n1.Mul(n2)
 			dlt.Debug(markerValue+"%s", over)
-			valueInt16, _ := strconv.ParseInt(data, 10, 64)
-			return int16(valueInt16)
+			return HexStringToBytes(data)
 		} else if dltDataFinished == "00" && dltDataFinished1 == "01" {
 			n1, _ := decimal.NewFromString(data)
 			n2, _ := decimal.NewFromString("0.01")
 			over := n1.Mul(n2)
 			dlt.Debug(markerValue+"%s", over)
-			valueInt16, _ := strconv.ParseInt(data, 10, 64)
-			return int16(valueInt16)
+			return HexStringToBytes(data)
 		} else if dltDataFinished == "00" && dltDataFinished1 == "02" {
 			n1, _ := decimal.NewFromString(data)
 			n2, _ := decimal.NewFromString("0.01")
 			over := n1.Mul(n2)
 			dlt.Debug(markerValue+"%s", over)
-			valueInt16, _ := strconv.ParseInt(data, 10, 64)
-			return int16(valueInt16)
+			return HexStringToBytes(data)
 		} else if dltDataFinished == "02" && dltDataFinished3 == "02" {
 			n1, _ := decimal.NewFromString(data)
 			n2, _ := decimal.NewFromString("0.01")
 			over := n1.Mul(n2)
 			dlt.Debug(markerValue+"%s", over)
-			valueInt16, _ := strconv.ParseInt(data, 10, 64)
-			return int16(valueInt16)
+			return HexStringToBytes(data)
 		} else if dltDataFinished == "02" && dltDataFinished1 == "01" {
 			n1, _ := decimal.NewFromString(data)
 			n2, _ := decimal.NewFromString("0.1")
 			over := n1.Mul(n2)
 			dlt.Debug(markerValue+"%s", over)
-			valueInt16, _ := strconv.ParseInt(data, 10, 64)
-			return int16(valueInt16)
+			return HexStringToBytes(data)
 		} else if dltDataFinished == "02" && dltDataFinished1 == "02" {
 			n1, _ := decimal.NewFromString(data)
 			n2, _ := decimal.NewFromString("0.001")
 			over := n1.Mul(n2)
 			dlt.Debug(markerValue+"%s", over)
-			valueInt16, _ := strconv.ParseInt(data, 10, 64)
-			return int16(valueInt16)
+			return HexStringToBytes(data)
 		}
 
 	}
-	return 0
+	return nil
 }
