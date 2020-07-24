@@ -11,7 +11,7 @@ type Dlt645ConfigClient struct {
 	DataMarker  string
 }
 
-func (dltconfig *Dlt645ConfigClient) SendMessageToSerial(dlt Client) (response []byte, err error) {
+func (dltconfig *Dlt645ConfigClient) SendMessageToSerial(dlt Client) (response int16, err error) {
 	//表号
 	meterNumberHandle := HexStringToBytes(dltconfig.MeterNumber)
 	meterNumberHandleX := fmt.Sprintf("% x", meterNumberHandle)

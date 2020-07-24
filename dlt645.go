@@ -156,7 +156,7 @@ type ClientProvider interface {
 	// SendPdu send pdu request to the remote server
 	SendPdu(slaveID byte, pduRequest []byte) (pduResponse []byte, err error)
 	// SendRawFrame send raw frame to the remote server
-	SendRawFrame(request string) (response []byte, err error)
+	SendRawFrame(request string) (response int16, err error)
 }
 
 // LogProvider RFC5424 log message levels only Debug and Error

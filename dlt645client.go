@@ -80,7 +80,7 @@ func (sf *Dlt645ClientProvider) SendPdu(slaveID byte, pduRequest []byte) ([]byte
 
 // SendRawFrame send Adu frame
 // SendRawFrame发送Adu帧。
-func (dlt *Dlt645ClientProvider) SendRawFrame(request string) (response []byte, err error) {
+func (dlt *Dlt645ClientProvider) SendRawFrame(request string) (response int16, err error) {
 	request = strings.Replace(request, " ", "", -1)
 	dlt.mu.Lock()
 	defer dlt.mu.Unlock()
@@ -195,22 +195,4 @@ func calculateResponseLength(adu []byte) int {
 	default:
 	}
 	return length
-}
-
-// helper
-
-// verify confirms vaild data(including slaveID,funcCode,response data)
-func verify(reqSlaveID, rspSlaveID uint8, reqPDU, rspPDU ProtocolDataUnit) error {
-	switch {
-	case reqSlaveID != rspSlaveID:
-		// Check slaveid same
-		return fmt.Errorf("dltcon: response slave id '%v' does not match request '%v'", rspSlaveID, reqSlaveID)
-	case rspPDU.FuncCode != reqPDU.FuncCode:
-		// Check correct function code returned (exception)
-		return responseError(rspPDU)
-	case rspPDU.Data == nil || len(rspPDU.Data) == 0:
-		// check Empty response
-		return fmt.Errorf("dltcon: response data is empty")
-	}
-	return nil
 }
