@@ -87,7 +87,7 @@ func (dlt *Dlt645ClientProvider) SendRawFrame(request string) (response int16, e
 
 	// check  port is connected
 	if !dlt.isConnected() {
-		return nil, ErrClosedConnection
+		return 0, ErrClosedConnection
 	}
 
 	// Send the request
