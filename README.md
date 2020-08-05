@@ -19,7 +19,8 @@ Then import the dlt645 package into your own code.
 ### Example
 
 
-`//调用ClientProvider的构造函数,返回结构体指针
+```
+	调用ClientProvider的构造函数,返回结构体指针
 	p := dlt.NewClientProvider()
 	//windows 下面就是 com开头的，比如说 com3
 	//mac OS/linux/unix  下面就是 /dev/下面的，比如说 dev/tty.usbserial-14320
@@ -49,5 +50,5 @@ Then import the dlt645 package into your own code.
 		}
 		time.Sleep(time.Second * 3)
 	}
-`
+```
 
