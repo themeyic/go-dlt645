@@ -1,6 +1,4 @@
-# go dlt645(通过串口解析DLT/645协议（目前只支持07规约）)
-
-#可以很方便地与edgex foundry结合起来
+# go dlt645(通过串口解析DLT/645协议（目前只支持07规约）可以很方便地与edgex foundry结合起来)
 
 ### Supported formats
 
